@@ -1,6 +1,6 @@
 # IronMonke-2025
 A mod for Gorilla Tag which turns you into Iron Man, working in the latest version.
-<img src="https://i.imgur.com/X7lJw6P.gif">
+<img src="preview2.gif">
 
 ---
 
