@@ -13,7 +13,7 @@ namespace IronMonke
         public const string _name = "Iron Monke";
     }
 
-    [BepInPlugin(ModInfo._id, ModInfo._name, "1.0.3")]
+    [BepInPlugin(ModInfo._id, ModInfo._name, "1.0.4")]
     public class Main : BaseUnityPlugin
     {
         GameObject gL;
