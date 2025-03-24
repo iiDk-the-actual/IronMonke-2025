@@ -72,11 +72,11 @@ namespace IronMonke
             {
                 if (ControllerInputPoller.instance.leftControllerSecondaryButton)
                 {
-                    GorillaLocomotion.Player.Instance.bodyCollider.attachedRigidbody.AddForce(10 * gL.transform.parent.right, ForceMode.Acceleration);
+                    GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.AddForce(10 * gL.transform.parent.right, ForceMode.Acceleration);
                     if (!psL.isPlaying) psL.Play();
                     if (!aL.isPlaying) aL.Play();
-                    GorillaTagger.Instance.StartVibration(true, GorillaTagger.Instance.tapHapticStrength / 50f * GorillaLocomotion.Player.Instance.bodyCollider.attachedRigidbody.velocity.magnitude, GorillaTagger.Instance.tapHapticDuration);
-                    aL.volume = 0.03f * GorillaLocomotion.Player.Instance.bodyCollider.attachedRigidbody.velocity.magnitude;
+                    GorillaTagger.Instance.StartVibration(true, GorillaTagger.Instance.tapHapticStrength / 50f * GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.velocity.magnitude, GorillaTagger.Instance.tapHapticDuration);
+                    aL.volume = 0.03f * GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.velocity.magnitude;
                 }
                 else
                 {
@@ -86,11 +86,11 @@ namespace IronMonke
 
                 if (ControllerInputPoller.instance.rightControllerSecondaryButton)
                 {
-                    GorillaLocomotion.Player.Instance.bodyCollider.attachedRigidbody.AddForce(10 * -gR.transform.parent.right, ForceMode.Acceleration);
+                    GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.AddForce(10 * -gR.transform.parent.right, ForceMode.Acceleration);
                     if (!psR.isPlaying) psR.Play();
                     if (!aR.isPlaying) aR.Play();
-                    GorillaTagger.Instance.StartVibration(false, GorillaTagger.Instance.tapHapticStrength / 50f * GorillaLocomotion.Player.Instance.bodyCollider.attachedRigidbody.velocity.magnitude, GorillaTagger.Instance.tapHapticDuration);
-                    aR.volume = 0.03f * GorillaLocomotion.Player.Instance.bodyCollider.attachedRigidbody.velocity.magnitude;
+                    GorillaTagger.Instance.StartVibration(false, GorillaTagger.Instance.tapHapticStrength / 50f * GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.velocity.magnitude, GorillaTagger.Instance.tapHapticDuration);
+                    aR.volume = 0.03f * GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.velocity.magnitude;
                 }
                 else
                 {
