@@ -13,7 +13,7 @@ namespace IronMonke
         public const string _name = "Iron Monke";
     }
 
-    [BepInPlugin(ModInfo._id, ModInfo._name, "1.0.5")]
+    [BepInPlugin(ModInfo._id, ModInfo._name, "1.0.6")]
     public class Main : BaseUnityPlugin
     {
         GameObject gL;
@@ -33,13 +33,13 @@ namespace IronMonke
         {
             gL = LoadAsset("gloveL");
             aL = gL.GetComponent<AudioSource>();
-            gL.transform.SetParent(GorillaTagger.Instance.offlineVRRig.transform.Find("RigAnchor/rig/body/shoulder.L/upper_arm.L/forearm.L/hand.L"), false);
+            gL.transform.SetParent(GorillaTagger.Instance.offlineVRRig.transform.Find("rig/body_pivot/hand.L"), false);
             psL = gL.transform.GetChild(0).GetChild(0).GetComponent<ParticleSystem>();
             gL?.SetActive(true);
 
             gR = LoadAsset("gloveR");
             aR = gR.GetComponent<AudioSource>();
-            gR.transform.SetParent(GorillaTagger.Instance.offlineVRRig.transform.Find("RigAnchor/rig/body/shoulder.R/upper_arm.R/forearm.R/hand.R"), false);
+            gR.transform.SetParent(GorillaTagger.Instance.offlineVRRig.transform.Find("rig/body_pivot/hand.R"), false);
             psR = gR.transform.GetChild(0).GetChild(0).GetComponent<ParticleSystem>();
             gR.SetActive(true);
         }
@@ -75,8 +75,8 @@ namespace IronMonke
                     GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.AddForce(10 * gL.transform.parent.right, ForceMode.Acceleration);
                     if (!psL.isPlaying) psL.Play();
                     if (!aL.isPlaying) aL.Play();
-                    GorillaTagger.Instance.StartVibration(true, GorillaTagger.Instance.tapHapticStrength / 50f * GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.velocity.magnitude, GorillaTagger.Instance.tapHapticDuration);
-                    aL.volume = 0.03f * GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.velocity.magnitude;
+                    GorillaTagger.Instance.StartVibration(true, GorillaTagger.Instance.tapHapticStrength / 50f * GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.linearVelocity.magnitude, GorillaTagger.Instance.tapHapticDuration);
+                    aL.volume = 0.03f * GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.linearVelocity.magnitude;
                 }
                 else
                 {
@@ -89,8 +89,8 @@ namespace IronMonke
                     GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.AddForce(10 * -gR.transform.parent.right, ForceMode.Acceleration);
                     if (!psR.isPlaying) psR.Play();
                     if (!aR.isPlaying) aR.Play();
-                    GorillaTagger.Instance.StartVibration(false, GorillaTagger.Instance.tapHapticStrength / 50f * GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.velocity.magnitude, GorillaTagger.Instance.tapHapticDuration);
-                    aR.volume = 0.03f * GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.velocity.magnitude;
+                    GorillaTagger.Instance.StartVibration(false, GorillaTagger.Instance.tapHapticStrength / 50f * GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.linearVelocity.magnitude, GorillaTagger.Instance.tapHapticDuration);
+                    aR.volume = 0.03f * GorillaLocomotion.GTPlayer.Instance.bodyCollider.attachedRigidbody.linearVelocity.magnitude;
                 }
                 else
                 {
